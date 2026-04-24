@@ -1,6 +1,18 @@
 # Tool Installation Guide
 
-This guide walks you through installing the required tools for this AI training class. All steps are designed to run inside a **GitHub Codespace**.
+This guide walks you through setting up your environment for this AI training class using **GitHub Codespaces** — no local installation required.
+
+---
+
+## Step 1: Open the repo in a Codespace
+
+1. Go to [https://github.com/reto-e/aise_tn](https://github.com/reto-e/aise_tn)
+2. Log in with your GitHub account (create a free account at [github.com](https://github.com) if you don't have one)
+3. Click the green **Code** button
+4. Select the **Codespaces** tab
+5. Click **Create codespace on main**
+
+GitHub will provision a cloud-based development environment and open it in your browser. All subsequent steps are run inside this Codespace.
 
 ---
 
@@ -54,10 +66,41 @@ Type `/bye` to exit the interactive session.
 
 ---
 
-## Troubleshooting
+## OpenCode
 
-| Problem | Fix |
-|---|---|
-| `ollama: command not found` | Re-run the install script or open a new terminal to reload `PATH` |
-| `Error: could not connect to ollama app` | Run `ollama serve &` first, then retry |
-| Download fails or is very slow | Check Codespace disk quota with `df -h`; free space if needed |
+OpenCode is a terminal-based AI coding assistant.
+
+### Install OpenCode
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Verify the installation:
+
+```bash
+opencode --version
+```
+
+---
+
+## Pi (picode)
+
+Pi is a terminal coding agent by pi.dev.
+
+### Install Pi
+
+Node.js is pre-installed in GitHub Codespaces, so you can install Pi directly via npm:
+
+```bash
+npm install -g @mariozechner/pi-coding-agent
+```
+
+Verify the installation:
+
+```bash
+pi --version
+```
+
+---
+
