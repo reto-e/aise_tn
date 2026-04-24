@@ -6,6 +6,6 @@
       "version": "lts"
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postCreateCommand": "chmod +x .devcontainer/setup.sh && bash .devcontainer/setup.sh",
   "postStartCommand": "OLLAMA_NUM_CTX=65536 ollama serve &"
 }
