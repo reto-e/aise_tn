@@ -46,10 +46,10 @@ OLLAMA_NUM_CTX=65536 ollama serve &
 
 ### Pull the Gemma 4 model
 
-Once the server is running, download the `gemma3:4b` model (the instruction-tuned 4-billion-parameter variant):
+Once the server is running, download the `gemma4:e2b` model (the instruction-tuned 4-billion-parameter variant):
 
 ```bash
-ollama pull gemma3:4b
+ollama pull gemma4:e2b
 ```
 
 > This download is several gigabytes. GitHub Codespaces has sufficient disk space, but it may take a few minutes depending on network speed.
@@ -59,7 +59,7 @@ ollama pull gemma3:4b
 Run a quick test prompt:
 
 ```bash
-ollama run gemma3:4b "Hello, who are you?"
+ollama run gemma4:e2b "Hello, who are you?"
 ```
 
 Type `/bye` to exit the interactive session.
