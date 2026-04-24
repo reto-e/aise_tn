@@ -118,3 +118,7 @@ pi
 | `ollama: command not found` after install | Open a new terminal to reload `PATH`, then re-run `./setup.sh` |
 | `opencode: command not found` after install | Open a new terminal to reload `PATH` |
 | Model download fails or is very slow | Check disk quota with `df -h`; re-run `./setup.sh` to resume |
+
+## Links
+
+https://aise-fhnw.atlassian.net/jira/software/projects/KAN/list
