@@ -1,4 +1,4 @@
-# Tool Installation Guide
+# Setup Guide
 
 This guide walks you through setting up your environment for this AI training class using **GitHub Codespaces** — no local installation required.
 
@@ -12,95 +12,109 @@ This guide walks you through setting up your environment for this AI training cl
 4. Select the **Codespaces** tab
 5. Click **Create codespace on main**
 
-GitHub will provision a cloud-based development environment and open it in your browser. All subsequent steps are run inside this Codespace.
+GitHub will provision a cloud-based development environment and open it in your browser.
 
 ---
 
-## Ollama
+## Step 2: Run the setup script
 
-Ollama lets you run large language models locally (or in your Codespace).
-
-### Install Ollama
-
-Run the official install script in your Codespace terminal:
+Once the Codespace has loaded, open the terminal and run:
 
 ```bash
-curl -fsSL https://ollama.com/install.sh | sh
+chmod +x setup.sh
+./setup.sh
 ```
 
-Verify the installation:
+The script will automatically install and configure the following tools (skipping anything already installed):
+
+- **Ollama** — local LLM runtime
+- **OpenCode** — terminal-based AI coding assistant
+- **Pi** — terminal coding agent ([pi.dev](https://pi.dev))
+- **gemma4:e2b** model — pulled and ready to use via Ollama with a 64K token context window
+
+The setup may take a few minutes, mainly due to the model download.
+
+---
+
+## Step 3: Configure OpenCode
+
+Start OpenCode in the terminal:
 
 ```bash
-ollama --version
+opencode
 ```
 
-### Start the Ollama server
+### Select the Big Pickle model
 
-Ollama needs its background service running before you can pull or use models:
+Big Pickle is OpenCode's stealth model, currently available for free. Inside OpenCode, type:
+
+```
+/models
+```
+
+Search for `big-pickle` and select it. Alternatively, set it as the default in your `opencode.json` config:
+
+```json
+{
+  "model": "opencode/big-pickle"
+}
+```
+
+> Big Pickle is a free preview model. Usage data may be collected for model improvement.
+
+---
+
+## Step 4: Configure Pi with Ollama
+
+Pi needs to be told to use Ollama as its model provider. Create or edit `~/.pi/agent/models.json`:
+
+```bash
+mkdir -p ~/.pi/agent
+nano ~/.pi/agent/models.json
+```
+
+Paste the following content:
+
+```json
+{
+  "providers": {
+    "ollama": {
+      "baseUrl": "http://localhost:11434/v1",
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "models": [
+        { "id": "gemma4:e2b" }
+      ],
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      }
+    }
+  }
+}
+```
+
+Save the file, then make sure Ollama is running:
 
 ```bash
 OLLAMA_NUM_CTX=65536 ollama serve &
 ```
 
-> The `&` runs it in the background. You can also open a second terminal and run `ollama serve` there without `&`.
-
-### Pull the Gemma 4 model
-
-Once the server is running, download the `gemma4:e2b` model (the instruction-tuned 4-billion-parameter variant):
+Start Pi and select the model with `/model`:
 
 ```bash
-ollama pull gemma4:e2b
+pi
 ```
 
-> This download is several gigabytes. GitHub Codespaces has sufficient disk space, but it may take a few minutes depending on network speed.
-
-### Verify the model works
-
-Run a quick test prompt:
-
-```bash
-ollama run gemma4:e2b "Hello, who are you?"
-```
-
-Type `/bye` to exit the interactive session.
+> The `models.json` file reloads automatically, so you can edit it without restarting Pi.
 
 ---
 
-## OpenCode
+## Troubleshooting
 
-OpenCode is a terminal-based AI coding assistant.
-
-### Install OpenCode
-
-```bash
-curl -fsSL https://opencode.ai/install | bash
-```
-
-Verify the installation:
-
-```bash
-opencode --version
-```
-
----
-
-## Pi (picode)
-
-Pi is a terminal coding agent by pi.dev.
-
-### Install Pi
-
-Node.js is pre-installed in GitHub Codespaces, so you can install Pi directly via npm:
-
-```bash
-npm install -g @mariozechner/pi-coding-agent
-```
-
-Verify the installation:
-
-```bash
-pi --version
-```
-
----
-
+| Problem | Fix |
+|---|---|
+| `Permission denied` when running `./setup.sh` | Run `chmod +x setup.sh` first |
+| `ollama: command not found` after install | Open a new terminal to reload `PATH`, then re-run `./setup.sh` |
+| `opencode: command not found` after install | Open a new terminal to reload `PATH` |
+| Model download fails or is very slow | Check disk quota with `df -h`; re-run `./setup.sh` to resume |
