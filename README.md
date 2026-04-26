@@ -28,13 +28,13 @@ Open a new terminal after installation to reload `PATH`, then start it with:
 opencode
 ```
 
-### Select the Big Pickle model
+### Select a model
 
-Inside OpenCode, type `/models`, search for `big-pickle`, and select it. Or set it as the default in your `opencode.json`:
+Inside OpenCode, type `/connect` to add a provider. Select **GitHub (Public)** as the provider, then choose the **Claude Haiku** model. Or set it as the default in your `opencode.json`:
 
 ```json
 {
-  "model": "opencode/big-pickle"
+  "model": "github/claude-haiku"
 }
 ```
 
