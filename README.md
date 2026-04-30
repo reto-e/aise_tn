@@ -40,6 +40,24 @@ Inside OpenCode, type `/connect` to add a provider. Select **GitHub (Public)** a
 
 ---
 
+## Mistral Vibe
+
+Mistral Vibe is a CLI coding agent built by Mistral AI.
+
+### Install
+
+1. Install Mistral Vibe via pip:
+   ```bash
+   pip install mistral-vibe
+   ```
+
+2. start vibe and log in:
+   ```bash
+   vibe --setup
+   ```
+
+---
+
 ## Playwright CLI
 
 Playwright CLI is a browser automation tool used for AI-assisted web interactions.
@@ -56,4 +74,34 @@ Playwright CLI is a browser automation tool used for AI-assisted web interaction
 
    ```bash
    npx playwright install chromium
+   ```
+
+## Atlassion CLI
+
+Create an API Token at https://id.atlassian.com/manage-profile/security/api-tokens
+
+1. Install it and make it executable
+
+   ```bash
+   sudo apt-get install -y wget gnupg2
+   ```
+2. Setup APT repo:
+   ```bash
+   sudo mkdir -p -m 755 /etc/apt/keyrings
+   wget -nv -O- https://acli.atlassian.com/gpg/public-key.asc | sudo gpg --dearmor -o /etc/apt/keyrings/acli-archive-keyring.gpg
+   sudo chmod go+r /etc/apt/keyrings/acli-archive-keyring.gpg
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/acli-archive-keyring.gpg] https://acli.atlassian.com/linux/deb stable main" | sudo tee /etc/apt/sources.list.d/acli.list > /dev/null
+   ```
+3. Install ACLI
+
+   ```bash
+   sudo apt update
+   sudo apt install -y acli
+   ```
+
+4. Log in 
+
+   ```bash
+   $ echo ATATT...1rko=63D0F137 | acli jira auth login --site "aise-fhnw.atlassian.net" --email "reto.eichholzer@bluewin.ch" --token
+
    ```
