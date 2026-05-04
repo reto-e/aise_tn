@@ -1,5 +1,5 @@
 ---
-name: specification-by-example-workshop
+name: specification-by-example
 description: facilitate a live specification by example workshop based on gojko adzic style. use when the user provides a short story plus some known rules and wants chatgpt to guide an interactive example-finding session, alternate turns for generating examples, extract attributes and boundaries, identify the critical examples, distill a practical rule set, refine the specification, and finish with open questions.
 ---
 
