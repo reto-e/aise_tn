@@ -40,9 +40,8 @@ Use your excalidraw-diagrams skill to output the result as a json that can be pa
 ## 2.1 — Create a stakeholder list
 
 ```bash
-You are a requirements engineer working on Torqvoice, a brownfield car workshop management tool.
 
-Create a stakeholder list for this system. For each stakeholder, provide:
+Create a stakeholder list for the torqvoice workshops system. For each stakeholder, provide:
 - Name / role
 - Primary interest in the system
 - Influence (high / medium / low)
@@ -58,9 +57,7 @@ Format the result as a markdown table. Store it in outputs/stakeholders.md
 ## 2.2 — Create a persona
 
 ```bash
-You are a requirements engineer working on Torqvoice.
-
-Create a detailed persona for the following stakeholder: [STAKEHOLDER ROLE]
+Create a detailed persona for the following stakeholder: [STAKEHOLDER ROLE]. You will find infos about this role in outputs/stakeholders.md
 
 Include:
 - Name, age, background
@@ -70,6 +67,10 @@ Include:
 - Quote that captures their attitude
 
 Keep the persona realistic and grounded in the car workshop domain.
+
+Store the output as outputs/persona.md 
+Ask me for the [STAKEHOLDER ROLE] first
+
 ```
 
 ---
@@ -79,13 +80,9 @@ Keep the persona realistic and grounded in the car workshop domain.
 Prepare rules, examples, and questions before an AI-simulated stakeholder interview.
 
 ```bash
-You are a requirements engineer preparing to interview a [STAKEHOLDER ROLE] about the Torqvoice car workshop system.
+You are a requirements engineer preparing to interview a stakeholder about the Torqvoice car workshop system.
 
-Based on the [user story] simulate a specs by example workshop using the specs-by-ex skill. 
-
-user story: :
-[PASTE user story here]
-
+Based on the feature "Self service booking for customers" simulate a specs by example workshop using the specs-by-ex skill. 
 ```
 
 ---
