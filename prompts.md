@@ -32,7 +32,7 @@ Generate an Archimate-style overview of the platform. Include:
 - Core system components and their relationships
 - External integrations if any
 
-Use your excalidraw-diagrams skill to output the result as a json that can be pasted into Excalidraw. Store it in outputs/archimate_overview.json
+Use your excalidraw-diagrams skill to output the result as a json that can be pasted into Excalidraw. Store it in Output/archimate_overview.json
 ```
 
 ---
@@ -49,7 +49,7 @@ Create a stakeholder list for the torqvoice workshops system. For each stakehold
 
 Consider both internal stakeholders (e.g. workshop staff) and external ones (e.g. car owners, parts suppliers).
 
-Format the result as a markdown table. Store it in outputs/stakeholders.md
+Format the result as a markdown table. Store it in Output/stakeholders.md
 ```
 
 ---
@@ -57,7 +57,7 @@ Format the result as a markdown table. Store it in outputs/stakeholders.md
 ## 2.2 — Create a persona
 
 ```bash
-Create a detailed persona for the following stakeholder: [STAKEHOLDER ROLE]. You will find infos about this role in outputs/stakeholders.md
+Create a detailed persona for the following stakeholder: [STAKEHOLDER ROLE]. You will find infos about this role in Output/stakeholders.md
 
 Include:
 - Name, age, background
@@ -68,7 +68,7 @@ Include:
 
 Keep the persona realistic and grounded in the car workshop domain.
 
-Store the output as outputs/persona.md 
+Store the output as Output/persona.md 
 Ask me for the [STAKEHOLDER ROLE] first
 
 ```
@@ -82,7 +82,7 @@ Prepare rules, examples, and questions before an AI-simulated stakeholder interv
 ```bash
 You are a requirements engineer preparing to interview a stakeholder about the Torqvoice car workshop system.
 
-Based on the feature "Self service booking for customers" simulate a specs by example workshop using the specs-by-ex skill. 
+Based on the feature "Self service booking for customers" simulate a specs by example workshop using the specification-by-example skill. 
 ```
 
 ---
