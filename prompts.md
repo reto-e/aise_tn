@@ -110,14 +110,12 @@ Start by briefly introducing yourself in character. Then wait for my first quest
 ## 2.3c — Story map from interview transcript
 
 ```bash
-You are a requirements engineer. Below is a transcript of a stakeholder interview about Torqvoice.
-
 Extract a user story map from this transcript. Structure the output as:
 - Activities (top level, left to right flow)
   - Tasks under each activity
     - User stories under each task (format: "As a [role], I want to [action] so that [benefit]")
 
-Mark stories that seem high-priority with [P1] and those that are uncertain with [?].
+Mark stories that seem high-priority with [P1] and those that are uncertain with [?]. Store the output as a markdown file at Output/story_map.md and also - using your excalidraw-diagrams skill as a json file for excalidraw named Output/storymap_excalidraw.json
 
 Interview transcript:
 [PASTE TRANSCRIPT HERE]
@@ -128,8 +126,6 @@ Interview transcript:
 ## 2.4 — Find dissatisfiers via code and DB analysis
 
 ```bash
-You are a requirements engineer analysing the Torqvoice codebase and database schema.
-
 Your goal is to identify "dissatisfiers" — basic requirements that users expect as a minimum but that may be missing, incomplete, or broken in the current system (Kano model: must-be quality).
 
 Analyse the available code and DB structure and provide:
@@ -145,9 +141,7 @@ Focus on functional behaviour visible to end users.
 ## 2.5 — Write a user story
 
 ```bash
-You are a requirements engineer working on Torqvoice.
-
-Write a user story for the following item from the story map using the story-writer-skill
+Write a user story for the following item from the story map using the jira-story-writer-skill. Store it in Output/user_story.md. Then use the atlassion cli (acli) to enter the story directly in jira.
 ```
 
 ---
@@ -155,13 +149,11 @@ Write a user story for the following item from the story map using the story-wri
 ## 2.6 — Document screenshots and create a BPMN diagram
 
 ```bash
-You are a requirements engineer.
-
-I have run through the Torqvoice booking flow using Playwright and captured screenshots.
-The screenshots are attached.
+Use your playwright-cli skill to run through the Torqvoice booking flow at https://demo.torqvoice.com/ using and capture screenshots.
 
 1. Describe each screen in one sentence (what the user sees and can do)
 2. Identify the sequence of steps as a process flow
+3. store a markdown file in Output/screenflow.md with the screens and the description
 3. Output a BPMN-style process description in text form with the following elements:
    - Start event
    - Tasks (with actor: user or system)
@@ -176,9 +168,7 @@ Highlight any steps where the flow is unclear or where a screenshot seems to be 
 ## 3.3 — Find lateral traceability between user stories
 
 ```bash
-You are a requirements engineer working on Torqvoice.
-
-Below is a list of user stories from the Jira backlog.
+Get yourself all user stories from the Jira backlog using the atlassian cli (acli).
 
 Identify lateral traceability relationships between these stories. For each pair, state:
 - Relationship type: Dependency / Conflict / Refinement
@@ -190,10 +180,7 @@ Definitions:
 - Conflict: Story A and Story B make contradictory assumptions about the system
 - Refinement: Story A is a more detailed version of or derived from Story B
 
-Output a markdown table with columns: Story A | Relationship | Story B | Reason
-
-User stories:
-[PASTE YOUR STORIES HERE]
+Output a markdown table with columns: Story A | Relationship | Story B | Reason Store it as Output/story_dependencies.md. Then also output this as a mermaid Graph TD source. Store it as mermaid_story_dependencies.md.
 ```
 
 ---
@@ -201,8 +188,6 @@ User stories:
 ## 3.4 — Impact analysis for a change request
 
 ```bash
-You are a requirements engineer working on Torqvoice.
-
 A change request has been raised: the self-service booking flow must support guest users who book without creating an account.
 
 Perform an impact analysis based on the user stories and acceptance criteria below.
@@ -214,8 +199,6 @@ For each requirement, state:
 
 Focus on: authentication assumptions, data model changes, confirmation flow, and GDPR implications.
 
-Requirements:
-[PASTE YOUR JIRA STORIES AND ACCEPTANCE CRITERIA HERE]
 ```
 
 ---
@@ -223,8 +206,6 @@ Requirements:
 ## 3.5 — Priority check: backlog alignment with impact map goal
 
 ```bash
-You are a requirements engineer and product owner for Torqvoice.
-
 Goal from impact map: [INSERT GOAL]
 Target behaviour change: [INSERT IMPACT]
 
