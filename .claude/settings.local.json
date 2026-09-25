@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:pi.dev)"
+      "WebFetch(domain:pi.dev)",
+      "WebFetch(domain:github.com)",
+      "mcp__plugin_atlassian_atlassian__searchJiraIssuesUsingJql"
     ]
   }
 }

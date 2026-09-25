@@ -1,0 +1,11 @@
+{
+  "name": "Course environment",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "node",
+  "postCreateCommand": "playwright-cli install --skills=agents -g",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  }
+}
